@@ -6,6 +6,10 @@ inputs:
     description: "Path to the manifest file"
     required: true
     default: "manifest.yaml"
+  output-path: # id of input
+    description: "Output path"
+    required: true
+    default: "_build"
 outputs:
   collector-file: # id of output
     description: "The generated Collector binary"
@@ -14,3 +18,4 @@ runs:
   image: "Dockerfile"
   args:
     - ${{ inputs.manifest-file }}
+    - ${{ inputs.output-path }}
