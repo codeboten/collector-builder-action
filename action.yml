@@ -1,0 +1,16 @@
+# action.yml
+name: "OpenTelemetry Collector Builder"
+description: "Build a custom OpenTelemetry Collector"
+inputs:
+  manifest-file: # id of input
+    description: "Path to the manifest file"
+    required: true
+    default: "manifest.yaml"
+outputs:
+  collector-file: # id of output
+    description: "The generated Collector binary"
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.manifest-file }}

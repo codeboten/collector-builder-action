@@ -1,0 +1,13 @@
+on: [push]
+
+jobs:
+  custom-collector-action:
+    runs-on: ubuntu-latest
+    name: A job to build a custom OpenTelemetry Collector
+    steps:
+      - uses: actions/checkout@v3
+      - name: Custom Collector Step
+        id: custom-collector
+        uses: codeboten/custom-collector-action@main
+      - name: Get the output file
+        run: echo "The file is ${{ steps.custom-collector.outputs.file }}"
