@@ -1,4 +1,4 @@
-# OpenTelemetry Collecto Builder action
+# OpenTelemetry Collector Builder action
 
 This action produces an OpenTelemetry Collector using the
 manifest file configured.
