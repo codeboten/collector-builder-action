@@ -1,6 +1,5 @@
 #!/bin/bash -x
 
-export GOARCH=$TARGETARCH
 export CGO_ENABLED=0
 export GOFLAGS=-buildvcs=false
 export BUILD_PATH=./$2

@@ -13,7 +13,15 @@ will need to be checked out before this action is run.
 ## `manifest-file`
 
 **Optional** The path of the manifest file. Refer to the OpenTelemetry Collector
-Builder documentation regarding the format of the manifest. Defaults to `manifest.yaml`
+Builder documentation regarding the format of the manifest. Defaults to `manifest.yaml`.
+
+## `architecture`
+
+**Optional** The target architecture of the output binary. The options for this configuration support are the same as [`GOARCH`](https://pkg.go.dev/internal/goarch). Defaults to `amd64`.
+
+## `os`
+
+**Optional** The target operating system of the output binary. The options for this configuration support are the same as [`GOOS`](https://pkg.go.dev/internal/goos). Defaults to `linux`.
 
 ## Outputs
 
@@ -30,4 +38,6 @@ steps:
   - uses: codeboten/collector-builder-action@v1
   - with:
       manifest-file: "manifest.yaml"
+      architecture: "amd64"
+      os: "linux"
 ```

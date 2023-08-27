@@ -6,7 +6,15 @@ inputs:
     description: "Path to the manifest file"
     required: true
     default: "manifest.yaml"
-  output-path: # id of input
+  architecture:
+    description: "The target architecture of the output binary"
+    required: true
+    default: "amd64"
+  os:
+    description: "The target operating system of the output binary"
+    required: true
+    default: "linux"
+  output-path:
     description: "Output path"
     required: true
     default: "_build"
@@ -19,3 +27,6 @@ runs:
   args:
     - ${{ inputs.manifest-file }}
     - ${{ inputs.output-path }}
+  env:
+    - GOARCH=${{ inputs.architecture }}
+    - GOOS=${{ inputs.os }}
