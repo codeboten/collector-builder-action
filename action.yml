@@ -28,5 +28,5 @@ runs:
     - ${{ inputs.manifest-file }}
     - ${{ inputs.output-path }}
   env:
-    - GOARCH=${{ inputs.architecture }}
-    - GOOS=${{ inputs.os }}
+    GOARCH: ${{ inputs.architecture }}
+    GOOS: ${{ inputs.os }}
