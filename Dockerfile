@@ -1,7 +1,15 @@
+FROM mikefarah/yq
+
+USER root
+RUN apk add --no-cache bash
+USER yq
+ENV OTELCOL_VERSION=$(yq '.dist.otelcol_version' $1)
+
+
 FROM golang:latest as build
 
 ARG TARGETARCH
-ARG BUILDER_VERSION=0.86.0
+ENV BUILDER_VERSION=${OTELCOL_VERSION:-0.86.0)
 
 RUN curl -L -o /builder https://github.com/open-telemetry/opentelemetry-collector/releases/download/cmd%2Fbuilder%2Fv${BUILDER_VERSION}/ocb_${BUILDER_VERSION}_linux_${TARGETARCH}
 RUN chmod +x /builder
